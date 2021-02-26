@@ -5,9 +5,9 @@ install: true # Skip the installation step entirely
 addons:
   sonarcloud:
     organization: "subhas-dev"
-    token:
-      secure: $SONAR_TOKEN
-   # # 694bc5460c8564c3b047cfaadd3731d5b289c69e 
+    token: ${{SONAR_TOKEN }}
+    #  secure: $SONAR_TOKEN
+    # # 694bc5460c8564c3b047cfaadd3731d5b289c69e 
     
 jdk:
   oraclejdk11
