@@ -7,7 +7,7 @@ addons:
     organization: "subhas-dev"
     token:
       secure: $SONAR_TOKEN
-    # 694bc5460c8564c3b047cfaadd3731d5b289c69e 
+   # # 694bc5460c8564c3b047cfaadd3731d5b289c69e 
     
 jdk:
   - oraclejdk8
