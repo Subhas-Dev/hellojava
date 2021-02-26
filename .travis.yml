@@ -1,0 +1,32 @@
+language: java
+sudo: false
+install: true # Skip the installation step entirely
+
+addons:
+  sonarcloud:
+    organization: "subhas-dev"
+    token:
+      secure: $SONAR_TOKEN
+    # 694bc5460c8564c3b047cfaadd3731d5b289c69e 
+    
+jdk:
+  - oraclejdk8
+
+jobs:
+  include:
+    - stage: "Unit Tests & SonarCloud Analysis"
+      script:
+        - gradle jacocoTestReport
+        - gradle sonarqube -Dsonar.login=$SONAR_TOKEN
+    - stage: "Deploy"
+      if: branch = master
+      script: echo "do deploy"
+
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.sonar/cache'
+    - '$HOME/.gradle/caches'
