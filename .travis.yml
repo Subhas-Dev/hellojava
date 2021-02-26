@@ -18,7 +18,7 @@ jobs:
     - stage: "Unit Tests & SonarCloud Analysis"
       script:
         - gradle jacocoTestReport
-        - gradle sonarqube -Dsonar.login=$SONAR_TOKEN
+        - gradle sonarqube -Dsonar.login= ${{SONAR_TOKEN }}
     - stage: "Deploy"
       if: branch = master
       script: echo "do deploy"
