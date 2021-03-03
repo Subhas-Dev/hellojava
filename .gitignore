@@ -39,6 +39,8 @@ Desktop.ini
 .sonar/
 .scannerwork/
 
+#--test
+
 # scripts patches, they are local to each developer
 scripts/patches/*.*
 scripts/patches/*license*.txt
