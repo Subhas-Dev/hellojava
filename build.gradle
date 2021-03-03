@@ -11,7 +11,7 @@ plugins {
     id 'java'
 
     // Gradle plugin to help analyzing projects with SonarQube
-    id "org.sonarqube" version "2.7"
+    id "org.sonarqube" version "3.1.1"
 
     // Apply the application plugin to add support for building an application
     id 'application'
