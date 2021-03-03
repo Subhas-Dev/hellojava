@@ -26,13 +26,15 @@ jobs:
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
       - name: Cache Gradle packages
-        uses: actions/cache@v1
+        #uses: actions/cache@v1
+        uses: sonarsource/sonarcloud-github-action@v1.3
         with:
           path: ~/.gradle/caches
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
           restore-keys: ${{ runner.os }}-gradle
       - name: Build and analyze
+        #uses: sonarsource/sonarcloud-github-action@v1.3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: ./gradlew build sonarqube -Dsonar.login= SONAR_TOKEN --info
+        run: ./gradlew build sonarqube -Dsonar.login= ${{ secrets.SONAR_TOKEN }} --info
